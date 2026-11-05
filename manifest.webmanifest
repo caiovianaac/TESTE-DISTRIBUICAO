@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Teste de Distribuição Jotabasso",
+  "short_name": "Teste Distribuição",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#242424",
+  "theme_color": "#193b26",
+  "icons": [
+    {
+      "src": "./app-icon.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
