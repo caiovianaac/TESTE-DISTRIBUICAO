@@ -792,7 +792,7 @@ section('Larguras sugeridas pelo cálculo e CV correspondente',122);
 const suggestion=(q,k)=>{const w=m.sug[q][k];if(w==null)return '-';const row=R.find(a=>Math.abs(a.m-w)<1e-9);return `${f2(w)} m / CV ${f2(row.cv[q])}%`};
 table(['Sistema','1ª sugestão','2ª sugestão','3ª sugestão','Selecionada para simulação'],SN.map((n,q)=>[n,suggestion(q,0),suggestion(q,1),suggestion(q,2),f2(r.sel[q])+' m']),[48,53,53,53,66],133);
 T('Sugestões = mínimos locais do CV. A largura selecionada para simulação pode ser diferente da sugerida.',12,179,8);
-T('O relatório apresenta os resultados do teste; não aplica limite de aprovação de CV.',12,185,8);
+T('Padrão da empresa: CV de até 15% é aceitável.',12,185,9,true);
 page('Gráficos dos resultados');
 section('Coeficiente de variação (%) por largura de trabalho (m)',40);
 const gx=24,gw=249,gy=49,gh=60,CL=[[154,114,0],[107,119,113],[46,125,50]],mx=Math.max(...R.flatMap(a=>a.cv).filter(Number.isFinite),1),PX=i=>gx+gw*i/(R.length-1||1),PY=v=>gy+gh-gh*v/mx;
@@ -860,8 +860,6 @@ remaining-=rows;
 }
 }
 }
-page('Resultados por largura de trabalho');T('Linhas destacadas: largura sugerida em pelo menos um sistema.',12,37,9);
-table(['Largura (m)','CV Dir. (%)','CV Esq. (%)','CV Cont. (%)','Coletores','Peso médio (g)'],R.map(a=>[f2(a.m),...a.cv.map(f2),a.n,f2(m.PC[a.n-1])]),[40,48,48,48,44,45],47,i=>m.sug.some(s=>s.some(w=>Math.abs(w-R[i].m)<1e-9)),'Resultados por largura de trabalho',{compact:true});
 page('Observações');section('Observações do teste',40);d.setFontSize(10);const obs=d.splitTextToSize(r.obs||'Sem observações.',269);y=49;for(const line of obs){if(y>188){page('Observações');y=42}T(line,12,y,10);y+=5}if(r.avisos?.length){y+=7;for(const warning of r.avisos){d.setFontSize(9);for(const line of d.splitTextToSize(warning,269)){if(y>188){page('Observações');y=42}T(line,12,y,9);y+=5}}}
 const photos=r.photos||[];if(photos.length){const cols=Math.min(photos.length,3),gap=6,cellW=(273-gap*(cols-1))/cols,imageH=photos.length>2?50:90,rowH=imageH+10;
 y+=7;if(y+8+rowH>192){page('Observações e fotos');y=40}section('Fotos do teste',y);y+=8;
