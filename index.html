@@ -450,8 +450,15 @@ td { font-variant-numeric: tabular-nums; }
   main { padding: 12px max(12px, env(safe-area-inset-right)) 20px max(12px, env(safe-area-inset-left)); }
   .card { padding: 14px; }
   .g { grid-template-columns: minmax(0, 1fr); gap: 12px; }
-  .general-fields, .test-settings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .general-fields > div:nth-child(n+3) { grid-column: 1 / -1; }
+  .test-settings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .general-fields input[type="date"], .general-fields input[type="time"] {
+    display: block;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    text-align: left;
+  }
+  .general-fields input::-webkit-date-and-time-value { margin: 0; text-align: left; }
   .test-settings > div { display: flex; flex-direction: column; justify-content: flex-end; }
   input, select, textarea { min-width: 0; max-width: 100%; }
   .photo-actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
