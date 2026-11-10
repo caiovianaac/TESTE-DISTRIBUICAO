@@ -1,5 +1,5 @@
 // Ao publicar uma nova versão, altere VERSION para renovar os arquivos offline.
-const VERSION='2026-11-09-data-hora';
+const VERSION='2026-11-10-logo-capa';
 const PREFIX='jotabasso-offline-'+self.registration.scope;
 const CACHE=PREFIX+VERSION;
 const home=new URL('./index.html',self.location.href).href;
